@@ -11,12 +11,12 @@ public class Main7 {
         String json = Api.getSpecializations(2025);
 
         ScopesList scopesList = new Gson().fromJson(json, ScopesList.class);
-        scopesList.uniqueScopes();
-        scopesList.sortByDeadline();
+        scopesList.uniqueScopes(); // vezme jen ty unikáty
+        scopesList.sortByDeadline(); //seřadí podle data
 
         ArrayList<String> dates = scopesList.getScopesFormated();
 
-        String formated = String.join(",", dates);
+        String formated = String.join(",", dates); // vrátí řetězec oddělený čárkami
         return formated;
     }
 }

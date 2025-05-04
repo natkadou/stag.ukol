@@ -9,12 +9,12 @@ public class Deadline {
 
     public Date getDate()
     {
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy"); //převede z textu na Date
         try {
             Date date = format.parse(this.value); //datum dd.mm.yyyy
             return date;
         } catch (ParseException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // když je špatný formát
             return null;
         }
     }
