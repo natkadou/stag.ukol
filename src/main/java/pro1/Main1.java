@@ -8,11 +8,13 @@ public class Main1 {
         System.out.println(emptyActionsCount("KIKM",2024));
     }
 
-    public static long emptyActionsCount(String department, int year)
-    {
-        String json = Api.getActionsByDepartment(department,year);
-        ActionsList actions= new Gson().fromJson(json, ActionsList.class);
+        public static long emptyActionsCount(String department, int year)
+        {
+            String json = Api.getActionsByDepartment(department,year);
+            ActionsList actions= new Gson().fromJson(json, ActionsList.class);
+            return actions.items.stream()
+                    .filter(a -> a.personsCount == 0)
+                    .count();
+        }
 
-        return -1; // TODO 1.1: Vrať počet akcí, které mají 0 přihlášených studentů
     }
-}
